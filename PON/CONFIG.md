@@ -1,7 +1,6 @@
 Ниже приведены кусочки кода, возможно пригодится
 ### Q-in-Q
 
-
 `Switch_config#dot1q-tunnel` - включаем глобально Q-in-Q
 Настраиваем порт:
 ```python
@@ -75,9 +74,15 @@ deny ip any any
 interface GigaEthernet0/1
  ip access-group subs.filter
 !
-
 ```
+Так же можем применить при  спользовании PPPOE в сети, ограничив весь остальной трафик:
 
+```python
+mac access-list pppoe
+ permit any any 0x8863
+ permit any any 0x8864
+ deny   ip any any
+```
 
 ### Loopback detect
 

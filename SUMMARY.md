@@ -1,4 +1,6 @@
 ### Summary
 
- \[Switch BDCOM P3310B\]\(posts/P3310B.md\)
+[posts/P3310B.md](/posts/P3310B.md "BDCOM 3310B")
+
+
 

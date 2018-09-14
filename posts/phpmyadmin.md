@@ -1,0 +1,1 @@
+﻿http://thinkfuturetechs.blogspot.com/2014/06/phpmyadmin-and-memcache.html

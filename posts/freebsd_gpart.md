@@ -232,3 +232,4 @@ super-block backups (for fsck -b #) at:
 sudo fdisk -BI /dev/da0
 sudo newfs_msdos /dev/da0
 ```
+http://www.wonkity.com/~wblock/docs/html/disksetup.html

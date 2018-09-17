@@ -232,4 +232,67 @@ super-block backups (for fsck -b #) at:
 sudo fdisk -BI /dev/da0
 sudo newfs_msdos /dev/da0
 ```
+### Форматируем USB диск в FAT32 
+
+
+Assuming your usb drive is /dev/da0
+
+Using fdisk:
+
+    Zero disk beginning with
+```
+    dd if=/dev/zero of=/dev/da0 bs=2m count=1
+```
+    Change first partition type to 12 (FAT32)
+```
+    fdisk -i /dev/da0
+```
+    Initialize fat32 file system
+```
+    newfs_msdos -F32 /dev/da0s1
+```
+Using gpart:
+
+    List existing partitions
+```
+    gpart show da0
+```
+    Delete existing partitions
+```
+    gpart delete -i 1 da0
+```
+    1 being partition index, you might need to repeat this depending on output from gpart show
+    destroy label after deleting all partitions (if you get complaints use gpart destroy -F to force destruction)
+```
+    gpart destroy da0
+```
+    create new mbr spanning entire disk
+```
+    gpart create -s mbr da0
+```
+    create new fat32 partition spanning entire disk
+```
+    gpart add -t fat32 da0
+```
+    Initialize fat32 file system
+```
+    newfs_msdos -F32 /dev/da0s1
+```
+
+However if you want GNOME to automount usb drive you shouldn't follow instructions above :-) Instead do this:
+
+    Destroy disk labels with
+```
+    gpart destroy da0
+```
+    or zero disk beginning with (might not work in case of GPT)
+```
+    dd if=/dev/zero of=/dev/da0 bs=2m count=1
+```
+    Initialize fat32 file system on entire disk without using partition table
+```
+    newfs_msdos -F32 /dev/da0
+```
+
+
 http://www.wonkity.com/~wblock/docs/html/disksetup.html

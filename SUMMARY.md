@@ -1,8 +1,5 @@
 ### Summary
-* [Config](/posts/CONFIG.md)
-* [Switch BDCOM P3310B](/posts/P3310B.md)
-* [Switch BDCOM P3616B](/posts/P3616.md)
-* [Testing_onu](/posts/test_onu.md)
+* [Linux trouble-shooting](/posts/linux_troubles.md)
 * [Technical interview](/posts/Technical_interview.md)
 * [MySQL создаем  юзера и новую базу](/posts/add_user.md)
 * [MySQL создаем  юзера и новую базу](/posts/add_user.md)
@@ -81,3 +78,7 @@
 * [Ставим Python приложение на сервер Raspberry PI](/posts/wiki_flask.md)
 * [Winbind](/posts/winbind.md)
 * [Wordpress](/posts/wordpress.md)
+* [Config](/posts/CONFIG.md)
+* [Switch BDCOM P3310B](/posts/P3310B.md)
+* [Switch BDCOM P3616B](/posts/P3616.md)
+* [Testing_onu](/posts/test_onu.md)

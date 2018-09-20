@@ -6,7 +6,7 @@ iptables -L -n
 
 ```
 
-Рабочий конфиг от SECL Group
+Рабочий конфиг 
 
 ```
 
@@ -102,7 +102,8 @@ iface vmbr1 inet static
 
 ```
 
-[Читаем эту статью.](http://www.rhd.ru/docs/manuals/enterprise/RHEL-4-Manual/security-guide/s1-firewall-ipt-fwd.html)  
+
+* [Читаем эту статью ](http://www.rhd.ru/docs/manuals/enterprise/RHEL-4-Manual/security-guide/s1-firewall-ipt-fwd.html)  
 
 Скрипт от одного нашего клиента.Тебе стопудняк пригодится
 
@@ -241,7 +242,6 @@ iptables -A FORWARD -i vmbr0 -p tcp --dport 2230 -d 192.168.3.30 -j ACCEPT
 /sbin/iptables -t nat -I POSTROUTING -p tcp -s 192.168.3.81 --sport 7700 -j SNAT --to-source 178.210.129.129:7700
 
 
-
 #VM CT169 ports forward
 
 /sbin/iptables -t nat -I PREROUTING --dst 192.168.3.2 -p tcp --dport 12321 -j DNAT --to-destination 192.168.3.92:12321
@@ -251,7 +251,6 @@ iptables -A FORWARD -i vmbr0 -p tcp --dport 2230 -d 192.168.3.30 -j ACCEPT
 /sbin/iptables -t nat -I PREROUTING --dst 178.210.129.129 -p tcp --dport 12321 -j DNAT --to-destination 192.168.3.92:12321
 
 /sbin/iptables -t nat -I POSTROUTING -p tcp -s 192.168.3.92 --sport 12321 -j SNAT --to-source 178.210.129.129:12321
-
 
 
 # Разрешаем доступ клиентам 
@@ -267,14 +266,9 @@ iptables -A FORWARD -i vmbr0 -p tcp --dport 2230 -d 192.168.3.30 -j ACCEPT
 #/sbin/iptables -A INPUT -p tcp --dport 22 -j DROP
 
 
-
-
-
 # Enable Moscow VPN for 192.168.3.129 - 192.168.3.158:
 
 #/sbin/iptables -t nat -A POSTROUTING -s 192.168.3.128/27 ! -d 192.168.3.128/27 -o tun0 -j SNAT --to-source 10.8.0.6
-
-
 
 #/sbin/ip r a 217.23.138.116 via 192.168.3.1 dev vmbr0 t vpn 
 
@@ -283,8 +277,6 @@ iptables -A FORWARD -i vmbr0 -p tcp --dport 2230 -d 192.168.3.30 -j ACCEPT
 #/sbin/ip r a default via 10.8.0.5 dev tun0 t vpn
 
 #/sbin/ip ru a from 192.168.3.128/27 lookup vpn
-
-
 
 exit 0
 

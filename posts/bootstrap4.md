@@ -56,6 +56,4 @@ class="col offset-3" - отступить три колонки
 
 class="container no-gutters" - без отступов
 
-
-
 ```

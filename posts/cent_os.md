@@ -107,9 +107,7 @@ dhclient enp0s3
 Перезагружает сеть 
 
 ```shell
-
 systemctl restart network
-
 ```
 
 Автостарт демонов после  перезагрузки: https://moonback.ru/page/centos-autorun

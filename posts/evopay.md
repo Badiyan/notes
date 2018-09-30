@@ -1,4 +1,7 @@
-﻿```
+﻿Задачки на тестовое задание
+----
+
+```
 
 Тестовые задания:
 
@@ -114,22 +117,23 @@ user2:pass2 127.0.0.1
 
 ```
 
-```
+
 
 Ответ на задачу1:
 
+```shell
 a)less file.log | cut -d' ' -f1 | uniq -c | sort -nrk 1 | head -n 10 > top_10_ip.txt
 
 b)less file.log | cut -d' ' -f11 | uniq -c | sort -nrk 1 | head -n 10 > top_10_url.txt
 
 c)less file.log | cut -d' ' -f12 | uniq -c | sort -nrk 1 | head -n 10 > top_10_user_agert.txt
-
+```
 
 
 Ответ на задачу2:
 
 1)
-
+```shell 
 http {
 
     upstream myapp1 {
@@ -161,11 +165,11 @@ http {
     }
 
 }
-
+```
 
 
 2)
-
+```shell
 http {
 
     upstream myapp1 {
@@ -197,14 +201,14 @@ http {
     }
 
 }
-
+```
 
 
 Ответ на задачу3:
 
 a) Упрощенный конфиг nginx
 
-
+```
 
 user www-data;
 
@@ -267,231 +271,102 @@ http {
 
 
 server {
-
         listen 80 default_server;
-
         listen [::]:80 default_server;
-
         access_log /var/log/nginx/phpmyadmin.log combined;
-
-
-
         root /var/www/phpmyadmin;
-
-
-
         index index.html 
-
-
-
         server_name _;
 
-
-
         location / {
-
-
-
-
-
         if ($var_one) {
-
             return 403;
-
         }
-
                 try_files $uri $uri/ =404;
-
         }
-
-
-
 }
-
+```
 
 
 b) Упрощенный конфиг nginx
 
-
+```
 
 user www-data;
-
 worker_processes auto;
-
 pid /run/nginx.pid;
-
 include /etc/nginx/modules-enabled/*.conf;
-
-
-
 events {
-
         worker_connections 768;
-
         # multi_accept on;
-
 }
-
-
 
 http {
-
-
-
-  
-
         map "$http_user_agent" $block {
-
             "~ Chromium"  "1";
-
             "~ Firefox"   "1";
-
             "~ Chrome"    "1";
-
         }
-
-
-
-
 
 server {
-
         listen 80 default_server;
-
         listen [::]:80 default_server;
-
         access_log /var/log/nginx/phpmyadmin.log combined;
-
-
-
         root /var/www/phpmyadmin;
-
-
-
         index index.html 
-
-
-
         server_name _;
-
-
-
         location / {
 
-
-
         set $abc "";
-
-
-
         if ($remote_addr != "8.8.8.8"){
-
         set $abc $block;
-
         }
-
-
 
         if ($abc) {
-
             return 403;
-
         }
-
                 try_files $uri $uri/ =404;
-
         }
-
-
-
 }
 
-
+```
 
 b) Упрощенный конфиг nginx
 
-
-
-
-
 Ответ на задачу4:
-
-
-
 Берем file1, форматируем его и записываем вывод в file2:
-
-
-
+```shell
 awk ' BEGIN{FS="\n"; RS=""} {for (i = 1; i <= NF; i+=3) { printf "%s:%s %s\n", $i,$(i+1),$(i+2) }}' file1 > file2
-
+```
 
 
 Ответ на задачу5:
-
+```shell 
 #!/bin/bash
-
-
-
 KEY=".ssh/id_rsa"
-
 PORT="22"
-
 ADMIN_EMAIL="email@domain.com"
-
 DESTINATION="alex@192.168.10.5:/home/alex/backup"
-
-
-
 MyUSER="root"
-
 MyPASS="gfhjkm"
-
 MyHOST="localhost"
-
- 
-
 MYSQL="$(which mysql)"
-
 MYSQLDUMP="$(which mysqldump)"
-
-
-
 #MYSQL="/usr/local/bin/mysql"
-
 #MYSQLDUMP="/usr/local/bin/mysqldump"
-
-
-
 CHOWN="$(which chown)"
-
 CHMOD="$(which chmod)"
-
 GZIP="$(which gzip)"
-
 MBD="$DEST"
-
 HOST="$(hostname)"
-
 DATE="$(date +"%Y%m%d")"
-
 LOG="./backup.log.$DATE"
-
- 
-
 FILE=""
-
 DBS=""
-
 DIR="./$HOST.$DATE.backup"
-
- 
-
 # DO NOT BACKUP these databases
-
 IGN="information_schema"
-
 IGN1="performance_schema"
-
 IGN2="mysql"
 
 
@@ -501,95 +376,51 @@ IGN2="mysql"
 
 
 if  [ -d "$DIR" ]; then
-
         echo "There is a backup folder on the host. This task is already running or previous run was completed with errors on `hostname`" 
-
         exit
-
-
-
 fi
-
-
 
 mkdir $DIR
 
-
-
 if  [ -f "$LOG" ]; then
-
         echo "There is a log file. This task is already running or previous run was completed with errors on `hostname`" 
-
         exit
-
-
-
 fi
 
 touch $LOG
-
 #directing all output to logfile
-
 exec >> $LOG 2>&1
 
 
 
 # Get all database list first
-
 DBS="$($MYSQL -u $MyUSER -h $MyHOST -p$MyPASS -Bse 'show databases')"
 
 
 
 if [ $? -ne 0 ]; then
-
         echo "ERROR with connecting to the MySQL! Plese, check." 
-
         exit
-
 fi
 
 
 
 for db in $DBS
-
 do
-
-
-
         if !  { [ "$IGN2" = "$db" ] || [ "$IGN1" = "$db" ] || [ "$IGN" = "$db" ]; }; then 
-
-            
-
                 FILE="$DIR/$db.$DATE.sql.gz"
-
                 $MYSQLDUMP --opt -u $MyUSER -h $MyHOST -p$MyPASS $db | $GZIP -9 > $FILE
-
                 echo -e "Backup of $db database done">>$LOG
-
         fi     
-
-
-
  done
 
-
-
         start=$(date +%s)
-
         rsync -avzh --compress-level=9 ./$DIR -e "ssh -i $KEY -p $PORT" $DESTINATION || (echo -e "Error when rsyncing $domain. \n\n For more information see $LOG:\n\n `tail $LOG`" | mail -s "rsync error" $ADMIN_EMAIL & continue)
-
         finish=$(date +%s)
 
         #Delete old logs 
-
         find ./ -maxdepth 1 -mtime +7 -type f -path "./backup.log.????????" -exec rm -r -f {} \;
-
         echo -e "`date` *** RSYNC worked for $((finish - start)) seconds">>$LOG
 
-
-
 rm -rf ./$DIR
-
-
-
 ```

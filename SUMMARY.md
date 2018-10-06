@@ -83,3 +83,5 @@
 * [Switch BDCOM P3616B](/posts/P3616.md)
 * [Testing_onu](/posts/test_onu.md)
 * [Tomcat on Linux](/posts/tomcat.md)
+* [Репликация базы данных Maria DB (Debian)](/posts/replica_mysql.md)
+* [Работа с SQL](/posts/sql_working.md)

@@ -5,23 +5,23 @@ AWS Cheat Sheet
 
 ## Table of Contents
 
-* [Почему AWS](#Почему-AWS)
-* [AWS CLI](#AWS-CLI)
-* [EC2](#EC2)
-* [Elastic Beanstalk](#Elastic-Beanstalk)
-* [Auto Scaling](#Auto-Scaling )
-* [ELB](#ELB)
-* [RDS](#RDS)
-* [VPS](#VPS)
-* [S3](#S3)
-* [IAM](#IAM)
-* [SNS](#SNS)
-* [SES](#SES)
-* [SQS](#SQS)
-* [ROUTE53](#ROUTE53)
-* [Cloud Watch](#Cloud-Watch)
-* [AWS Lambda](#AWS-Lambda)
-* [Amazon DynamoDB](#Amazon-DynamoDB)
+* [Почему AWS](#почему-aws)
+* [AWS CLI](#aws-cli)
+* [EC2](#ec2)
+* [Elastic Beanstalk](#elastic-beanstalk)
+* [Auto Scaling](#auto-scaling )
+* [ELB](#elb)
+* [RDS](#rds)
+* [VPS](#vps)
+* [S3](#s3)
+* [IAM](#iam)
+* [SNS](#sns)
+* [SES](#ses)
+* [SQS](#sqs)
+* [ROUTE53](#route53)
+* [Cloud Watch](#cloud-watch)
+* [AWS Lambda](#aws-lambda)
+* [Amazon DynamoDB](#amazon-dynamodb)
 * [Contributing](#contributing)
 
 ## Почему AWS
@@ -121,20 +121,21 @@ Amazon Web Services (AWS) представляет собой безопасну
 
 ## Contributing
 
-Here's how to contribute to this cheat sheet.
 
-### Open README.md
+Пример, как внестии свой вклад. 
 
-Click [README.md](https://github.com/wsargent/docker-cheat-sheet/blob/master/README.md) <-- this link
+### Открыть README.md
 
-![Click This](images/click.png)
+Кликнуть  [README.md](https://github.com/eleutherius/notes/blob/master/README.md) <-- эту ссылку
 
-### Edit Page
+![Кликнуть это](images/click.png)
 
-![Edit This](images/edit.png)
+### Oтредактировать страницу
 
-### Make Changes and Commit
+![Отредактировать это](images/edit.png)
 
-![Change This](images/change.png)
+### Сделать изменения и закомитить 
 
-![Commit](images/commit.png)
+![Изменить это](images/change.png)
+
+![Комит](images/commit.png)

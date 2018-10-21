@@ -1,4 +1,5 @@
 ### Summary
+* [AWS](/posts/AWS.md)
 * [Linux trouble-shooting](/posts/linux_troubles.md)
 * [Technical interview](/posts/Technical_interview.md)
 * [MySQL создаем  юзера и новую базу](/posts/add_user.md)

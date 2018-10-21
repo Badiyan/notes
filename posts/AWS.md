@@ -121,21 +121,5 @@ Amazon Web Services (AWS) представляет собой безопасну
 
 ## Contributing
 
-
-Пример, как внестии свой вклад. 
-
-### Открыть README.md
-
-Кликнуть  [README.md](https://github.com/eleutherius/notes/blob/master/README.md) <-- эту ссылку
-
-![Кликнуть это](images/click.png)
-
-### Oтредактировать страницу
-
-![Отредактировать это](images/edit.png)
-
-### Сделать изменения и закомитить 
-
-![Изменить это](images/change.png)
-
-![Комит](images/commit.png)
+Как внестии свой вклад? 
+У вас есть всегда возможность привнести что-то новое в этот документ.  

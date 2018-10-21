@@ -17,12 +17,9 @@ sudo htpasswd -c /etc/nginx/.htpasswd exampleuser
     auth_basic_user_file    "/var/www/alex/.htpasswd";
 ```
 
-
-
 Пример конфигурации nginx 
 
 ```
-
  server {
   listen       portnumber;
   server_name  ip_address;
@@ -33,7 +30,6 @@ sudo htpasswd -c /etc/nginx/.htpasswd exampleuser
       auth_basic_user_file /etc/nginx/.htpasswd;  #For Basic Auth
   }
 }
-
 ```
 
  Перезагружаем сервер 

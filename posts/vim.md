@@ -415,3 +415,26 @@ dip - вырезать параграф
 ```
 
 https://www.opennet.ru/docs/RUS/vim_cookbook/
+
+
+# Quick setup
+
+
+### Coock 
+
+```
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+```
+add ```.vimrc```:
+
+```
+map <C-n> :NERDTreeToggle<CR>
+:let mapleader = "//"
+map <leader>tn :tabnew<cr>
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+set number 
+```
